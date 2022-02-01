@@ -1,15 +1,26 @@
 /*===== GOOGLE FONTS =====*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap');
 
-/*===== VARIABLES CSS =====*/
-:root {
+/*===== VARIABLES =====*/
 
   /*========== Colors ==========*/
-  --primary-color: #069C54;
-  --secondary-color: #048654;
-  --tertiary-color: #393939;
-  --linear-gradient-color: #707070;
+    $color-primary: #9356DC;
+    $color-secondary: #FF79DA;
+    $color-tertiary: #99E2D0;
+    $color-btn-gradient: linear-gradient(347deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
+    $color-bg-footer: #222423;
+    $color-shadow: rgb(43, 43, 43);
+
+    /*========== SIZES ==========*/
+    $shadow-card-size: 20px;
+    $shadow-btn-size: 10px;
+
+/*===== MIXINS =====*/
+@mixin boxes-shadow($colour: $color-shadow, $shadow-size: $shadow-card-size){
+  box-shadow: 0 0 $shadow-size $colour;
 }
+
+
 /*========== BASE ==========*/
 *,
 *::before,
@@ -21,7 +32,6 @@ body{
   margin: 0;
   font-family: 'Roboto';
   z-index: 1111;
-  //animation: fadeIn 7s forwards;
 }
 
 h1,h2,h3,p,ul{
@@ -56,7 +66,7 @@ img{
   z-index: 999;
   width: 100%;
   height: 100vh;
-  animation: pageLoader 5s forwards;
+  animation: pageLoader 3s forwards;
 
  .ring{
    position: absolute;
@@ -90,7 +100,7 @@ img{
 @keyframes ring{
   0%{
     transform: rotate(0deg);
-    box-shadow: 1px 5px 2px #9356DC;
+    box-shadow: 1px 5px 2px $color-primary;
   }
 
   50%{
@@ -100,7 +110,7 @@ img{
 
   100%{
     transform: rotate(360deg);
-    box-shadow: 1px 5px 2px #FF79DA;
+    box-shadow: 1px 5px 2px $color-secondary;
   }
 }
 
@@ -162,11 +172,11 @@ header{
         }
 
         .explore-btn-cta{
+            @include boxes-shadow(green, $shadow-btn-size);
             border: none;
             padding: 1em;
-            background: rgb(147,86,220);
-            background: linear-gradient(347deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
-            box-shadow: 0 0 15px rgb(65, 65, 65);
+            background: $color-primary;
+            background: $color-btn-gradient;
             border-radius: 2rem;
             color: white;
             font-weight: bold;
@@ -206,13 +216,13 @@ header{
         }
 
         &:hover .about-icon{
-          color: #9356DC;
+          color: $color-primary;
         }
 
         .aside-number{
           position: relative;
           left: -.75rem;
-          background: #9356DC;
+          background: $color-primary;
           border-radius: 50%;
           padding: .35rem .65rem;
           color: white;
@@ -236,7 +246,7 @@ header{
   }
 
   .restaurant-card{
-    box-shadow: 0 0 20px black;
+    @include boxes-shadow;
     margin-bottom: 2rem;
     border-radius: 1rem;
     position: relative;
@@ -297,7 +307,7 @@ header{
 
 .footer-section{
   padding: 3rem 1rem;
-  background: var(--tertiary-color);
+  background: $color-bg-footer; 
   color: white;
   line-height: 1.9;
 
@@ -384,25 +394,26 @@ header{
       position: absolute;
       width: 11%;
       height: 2px;
-      background: #99E2D0;
+      background: $color-tertiary;
       bottom: -4px;
       left: 0;
     }
   }
 
   .menu-item-card{
+    @include boxes-shadow;
     background-color: white;
     border-radius: 1rem;
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.5rem;
     cursor: pointer;
+    overflow: hidden;
 
     &:hover .check-icon{
       display: flex;
       justify-content: center;
-      align-items: center;
-      right: 0;
+      align-items: center; 
     }
 
     .card-description{
@@ -431,20 +442,47 @@ header{
       align-items: center;
       padding: 1rem;
       margin-left: 29px;
+      position: relative;
+      animation: checkedItem 1s ease-in-out;
     }
 
     .check-icon{
       font-size: 20px;
       display: none;
       position: relative;
-      right: -85px;
-      background-color: #99E2D0;
+      //right: -85px;
+      background-color: $color-tertiary;
       color: white;
       padding: 2rem;
       border-radius: 0 1rem 1rem 0;
+      animation: checkedItem 1s linear;
+
+      .fa-check-circle{
+        animation: checkIcon 1s ease-in-out;
+      }
     }
   }
 
+}
+
+@keyframes checkedItem{
+  0%{
+    right: -85px;
+  }
+
+  100%{
+    right: 0;
+  }
+}
+
+@keyframes checkIcon{
+  0%{
+    transform: rotate(360deg);
+  }
+
+  100%{
+    transform: rotate(-360deg);
+  }
 }
 
 .commande{
@@ -453,30 +491,17 @@ header{
   justify-content: center;
 
   .btn-cta{ //import later
+    @include boxes-shadow( $color-shadow, $shadow-btn-size);
     border: none;
     padding: 1em;
-    background: rgb(147,86,220);
-    background: linear-gradient(347deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
-    box-shadow: 0 0 15px rgb(65, 65, 65);
+    background: $color-primary;
+    background: $color-btn-gradient;
     border-radius: 2rem;
     color: white;
     font-weight: bold;
     display: block;
     align-items: center;
     font-size: 1.25rem;
-  }
-}
-
-
-@keyframes fadeIn{
-  from{
-    opacity: 0;
-    transform: translateZ(20em);
-  }
-
-  to{
-    opacity: 1;
-    transform: translateZ(0);
   }
 }
 

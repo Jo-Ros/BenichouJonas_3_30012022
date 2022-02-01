@@ -1,14 +1,9 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap");
-/*===== VARIABLES CSS =====*/
-:root {
-  /*========== Colors ==========*/
-  --primary-color: #069C54;
-  --secondary-color: #048654;
-  --tertiary-color: #393939;
-  --linear-gradient-color: #707070;
-}
-
+/*===== VARIABLES =====*/
+/*========== Colors ==========*/
+/*========== SIZES ==========*/
+/*===== MIXINS =====*/
 /*========== BASE ==========*/
 *,
 *::before,
@@ -61,8 +56,8 @@ img {
   z-index: 999;
   width: 100%;
   height: 100vh;
-  -webkit-animation: pageLoader 5s forwards;
-          animation: pageLoader 5s forwards;
+  -webkit-animation: pageLoader 3s forwards;
+          animation: pageLoader 3s forwards;
 }
 
 .page-loader .ring {
@@ -216,12 +211,12 @@ header {
 }
 
 .order-section .explore-container .explore-btn-cta {
+  -webkit-box-shadow: 0 0 10px green;
+          box-shadow: 0 0 10px green;
   border: none;
   padding: 1em;
-  background: #9356dc;
+  background: #9356DC;
   background: linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
-  -webkit-box-shadow: 0 0 15px #414141;
-          box-shadow: 0 0 15px #414141;
   border-radius: 2rem;
   color: white;
   font-weight: bold;
@@ -293,8 +288,8 @@ header {
 }
 
 .restaurant-section .restaurant-card {
-  -webkit-box-shadow: 0 0 20px black;
-          box-shadow: 0 0 20px black;
+  -webkit-box-shadow: 0 0 20px #2b2b2b;
+          box-shadow: 0 0 20px #2b2b2b;
   margin-bottom: 2rem;
   border-radius: 1rem;
   position: relative;
@@ -360,7 +355,7 @@ header {
 /*========== FOOTER SECTION ==========*/
 .footer-section {
   padding: 3rem 1rem;
-  background: var(--tertiary-color);
+  background: #222423;
   color: white;
   line-height: 1.9;
 }
@@ -466,6 +461,8 @@ header i {
 }
 
 .starters .menu-item-card {
+  -webkit-box-shadow: 0 0 20px #2b2b2b;
+          box-shadow: 0 0 20px #2b2b2b;
   background-color: white;
   border-radius: 1rem;
   display: -webkit-box;
@@ -476,6 +473,7 @@ header i {
           justify-content: space-between;
   margin-bottom: 1.5rem;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .starters .menu-item-card:hover .check-icon {
@@ -488,7 +486,6 @@ header i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  right: 0;
 }
 
 .starters .menu-item-card .card-description {
@@ -523,17 +520,68 @@ header i {
           align-items: center;
   padding: 1rem;
   margin-left: 29px;
+  position: relative;
+  -webkit-animation: checkedItem 1s ease-in-out;
+          animation: checkedItem 1s ease-in-out;
 }
 
 .starters .menu-item-card .check-icon {
   font-size: 20px;
   display: none;
   position: relative;
-  right: -85px;
   background-color: #99E2D0;
   color: white;
   padding: 2rem;
   border-radius: 0 1rem 1rem 0;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  -webkit-animation: checkedItem 1s linear;
+          animation: checkedItem 1s linear;
+}
+
+.starters .menu-item-card .check-icon .fa-check-circle {
+  -webkit-animation: checkIcon 1s ease-in-out;
+          animation: checkIcon 1s ease-in-out;
+}
+
+@-webkit-keyframes checkedItem {
+  0% {
+    right: -85px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes checkedItem {
+  0% {
+    right: -85px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@-webkit-keyframes checkIcon {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@keyframes checkIcon {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
 }
 
 .commande {
@@ -547,12 +595,12 @@ header i {
 }
 
 .commande .btn-cta {
+  -webkit-box-shadow: 0 0 10px #2b2b2b;
+          box-shadow: 0 0 10px #2b2b2b;
   border: none;
   padding: 1em;
-  background: #9356dc;
+  background: #9356DC;
   background: linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
-  -webkit-box-shadow: 0 0 15px #414141;
-          box-shadow: 0 0 15px #414141;
   border-radius: 2rem;
   color: white;
   font-weight: bold;
@@ -561,31 +609,5 @@ header i {
       -ms-flex-align: center;
           align-items: center;
   font-size: 1.25rem;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-    -webkit-transform: translateZ(20em);
-            transform: translateZ(20em);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    -webkit-transform: translateZ(20em);
-            transform: translateZ(20em);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-  }
 }
 /*# sourceMappingURL=style.css.map */

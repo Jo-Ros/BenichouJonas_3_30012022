@@ -9,119 +9,146 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    
-    <header>
-        <a href="index.html"><i class="fas fa-arrow-left"></i></a>
+    <header class="pages-header">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i></a>
         <a href="#"><img src="images/logo/ohmyfood.png" class="ohmyfoodlogo" alt=""></a>
     </header>
+    <!--<object data="header.html" width="100%"></object>
 
-    <div class="hero-bg"></div>
+    <iframe src="header.html" frameborder="0" seamless></iframe> NOT SUPPORTED BUT PERFECT!!-->
+
+    <img src="images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" class="banner-img" alt="">
+
     <main class="page-main">
-        <div class="menu-container">
+        <div class="page-container">
             <div class="title">
-                <h1>A la française</h1>
-                <div class="heart-icon"><i class="far fa-heart"></i></div>
+                <h1>À la française</h1>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span class="far fa-heart unchecked"></span>
+                    <span class="fas fa-heart checked"></span>
+                </label>
             </div>
 
-            <div class="starters">
-                <h3>ENTREES</h3>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Tarte de poulpe acidulé</h4>
-                        <p>Aux zestes d'orange</p>
-                    </div>
-                    <div class="card-price">
-                        <p>25€</p>
-                    </div>  
+            <div class="menu-container">
+                <div class="starters">
+                    <h3>ENTREES</h3>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Tartare de poulpe acidulé</span>
+                            <span class="meal-description">Aux zestes d'orange</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">25€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Velouté de légumes d'antan</span>
+                            <span class="meal-description">Carotte, panais, topinambour</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">35€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Soupe à l'oignon</span>
+                            <span class="meal-description">Revisitée</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">20€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
                 </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Velouté de légumes d'antan</h4>
-                        <p>Carotte, panais, topinambour</p>
-                    </div>
-                    <div class="card-price">
-                        <p>35€</p>
-                    </div>  
+    
+                <div class="starters">
+                    <h3>PLATS</h3>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Coquilles Saint-Jacques</span>
+                            <span class="meal-description">Accompagnées d'une purée de panais</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">40€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Magret de canard</span>
+                            <span class="meal-description">Et parmentier de pommes de terre</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">35€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Pigeonneau d’Ille-et-Vilaine</span>
+                            <span class="meal-description">Sur son lit de gnocchis aux légumes</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">44€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
                 </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Soupe à l'oignon</h4>
-                        <p>Revisitée</p>
-                    </div>
-                    <div class="card-price">
-                        <p>20€</p>
-                    </div>  
-                </div>
-            </div>
-
-            <div class="starters">
-                <h3>PLATS</h3>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Coquille Saint-Jacques</h4>
-                        <p>Accompagnée d'une purée de panais</p>
-                    </div>
-                    <div class="card-price">
-                        <p>40€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Magret de canard</h4>
-                        <p>Et parmentier de pommes de terre</p>
-                    </div>
-                    <div class="card-price">
-                        <p>35€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Pigeonneau d'Ille-et-Vilaine</h4>
-                        <p>Sur son lit de gnocchis aux légumes</p>
-                    </div>
-                    <div class="card-price">
-                        <p>44€</p>
-                    </div>  
-                </div>
-            </div>
-
-            <div class="starters">
-                <h3>DESSERTS</h3>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Pétales de violettes glacés</h4>
-                        <p>Et purée de noisettes</p>
-                    </div>
-                    <div class="card-price">
-                        <p>18€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Fondant au chocolat</h4>
-                        <p>Revisité</p>
-                    </div>
-                    <div class="card-price">
-                        <p>22€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Millefeuille croustillant</h4>
-                        <p>Myrtilles et pâte d'amande</p>
-                    </div>
-                    <div class="card-price">
-                        <p>23€</p>
-                    </div>  
+    
+                <div class="starters">
+                    <h3>DESSERTS</h3>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Pétales de violettes glacés</span>
+                            <span class="meal-description">Et purée de noisettes</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">18€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Fondant au chocolat</span>
+                            <span class="meal-description">Revisité</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">22€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Millefeuille croustillant</span>
+                            <span class="meal-description">Myrtilles et pâte d’amande</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">23€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
                 </div>
             </div>
 
@@ -148,3 +175,6 @@
             </ul>
         </nav>
     </footer>
+
+</body>
+</html>

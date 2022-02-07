@@ -9,129 +9,158 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    
-    <header>
-        <a href="index.html"><i class="fas fa-arrow-left"></i></a>
+    <header class="pages-header">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i></a>
         <a href="#"><img src="images/logo/ohmyfood.png" class="ohmyfoodlogo" alt=""></a>
     </header>
+    <!--<object data="header.html" width="100%"></object>
 
-    <div class="hero-bg"></div>
+    <iframe src="header.html" frameborder="0" seamless></iframe> NOT SUPPORTED BUT PERFECT!!-->
+
+    <img src="images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg" class="banner-img" alt="">
+
     <main class="page-main">
-        <div class="menu-container">
+        <div class="page-container">
             <div class="title">
                 <h1>La note enchantée</h1>
-                <div class="heart-icon"><i class="far fa-heart"></i></div>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span class="far fa-heart unchecked"></span>
+                    <span class="fas fa-heart checked"></span>
+                </label>
             </div>
 
-            <div class="starters">
-                <h3>ENTREES</h3>
+            <div class="menu-container">
+                <div class="starters">
+                    <h3>ENTREES</h3>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Ravioles de foie gras</span>
+                            <span class="meal-description">Accompagnés de leur crème à la truffe</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">25€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Caviar osciètre</span>
+                            <span class="meal-description">Sur blini à la farine de blé noir</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">35€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Homard et espuma de potiron</span>
+                            <span class="meal-description">Mariné aux zestes d'orange</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">20€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
 
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Ravioles de foie gras </h4>
-                        <p>Accompagnés de leur crème à la truffe</p>
-                    </div>
-                    <div class="card-price">
-                        <p>25€</p>
-                    </div>  
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Foie gras de canard cuit entier</span>
+                            <span class="meal-description">Confiture de figue et pain toasté</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">35€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
                 </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Caviar osciètre </h4>
-                        <p>Sur blini à la farine de blé noir</p>
-                    </div>
-                    <div class="card-price">
-                        <p>35€</p>
-                    </div>  
+    
+                <div class="starters">
+                    <h3>PLATS</h3>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Noix de coquilles Saint-Jacques</span>
+                            <span class="meal-description">Sur lit de purée de céleri-rave</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">40€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Langoustine poêléet</span>
+                            <span class="meal-description">Purée de patate douce</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">35€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Mijoté de queue de boeuf</span>
+                            <span class="meal-description">Et riz sauvage aux zestes de citron</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">44€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
                 </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Homard et espuma de potiron</h4>
-                        <p>Mariné aux zestes d'orange</p>
-                    </div>
-                    <div class="card-price">
-                        <p>20€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Foie gras de canard cuit entier</h4>
-                        <p>Confiture de figue et pain toasté</p>
-                    </div>
-                    <div class="card-price">
-                        <p>35€</p>
-                    </div>  
-                </div>
-            </div>
-
-            <div class="starters">
-                <h3>PLATS</h3>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Noix de coquilles Saint-Jacques</h4>
-                        <p>Sur lit de purée de céleri-rave</p>
-                    </div>
-                    <div class="card-price">
-                        <p>40€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Langoustine poêlée</h4>
-                        <p>Purée de patate douce</p>
-                    </div>
-                    <div class="card-price">
-                        <p>35€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Mijoté de queue de boeuf </h4>
-                        <p>Et riz sauvage aux zestes de citron</p>
-                    </div>
-                    <div class="card-price">
-                        <p>44€</p>
-                    </div>  
-                </div>
-            </div>
-
-            <div class="starters">
-                <h3>DESSERTS</h3>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Macaron noisette et chocolat</h4>
-                        <p>Glace au caramel brun et sel de Guérande</p>
-                    </div>
-                    <div class="card-price">
-                        <p>18€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Baba au rhum revisité </h4>
-                        <p>Avec son coulis de citron</p>
-                    </div>
-                    <div class="card-price">
-                        <p>22€</p>
-                    </div>  
-                </div>
-
-                <div class="menu-item-card">
-                    <div class="card-description">
-                        <h4>Tarte au citron meringuée </h4>
-                        <p>Déstructurée</p>
-                    </div>
-                    <div class="card-price">
-                        <p>23€</p>
-                    </div>  
+    
+                <div class="starters">
+                    <h3>DESSERTS</h3>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Macaron noisette et chocolat</span>
+                            <span class="meal-description">Glace au caramel brun et sel de Guérande</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">18€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Baba au rhum revisité </span>
+                            <span class="meal-description">Avec son coulis de citron</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">22€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
+    
+                    <label class="option-menu-item card">
+                        <input type="checkbox">
+                        <span class="card-description">
+                            <span class="meal-title">Tarte au citron meringuée</span>
+                            <span class="meal-description">Déstructurée</span>
+                        </span>           
+                        <span class="magic">
+                            <span class="price">23€</span>
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                        </span>
+                    </label>
                 </div>
             </div>
 
@@ -158,3 +187,6 @@
             </ul>
         </nav>
     </footer>
+
+</body>
+</html>

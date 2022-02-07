@@ -1,9 +1,49 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap");
 /*===== VARIABLES =====*/
-/*========== Colors ==========*/
-/*========== SIZES ==========*/
+/*--------- Colors ---------*/
+/*---------- SIZES ----------*/
 /*===== MIXINS =====*/
+/*--------- STYLES ---------*/
+/*--------- LAYOUTS ---------*/
+/*===== COMPONENTS =====*/
+.btn-cta {
+  -webkit-box-shadow: 0 0 10px #2b2b2b;
+          box-shadow: 0 0 10px #2b2b2b;
+  background: linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 1em;
+  border-radius: 2rem;
+  -webkit-transition: ease-in-out .3s;
+  transition: ease-in-out .3s;
+  -webkit-animation: btnAnimation;
+          animation: btnAnimation;
+}
+
+.btn-cta:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  background: linear-gradient(147deg, #9356dc 16%, #ff79da 62%);
+}
+
+.card {
+  -webkit-box-shadow: 0 0 20px #2b2b2b;
+          box-shadow: 0 0 20px #2b2b2b;
+  border-radius: 1em;
+  margin-bottom: 1.7rem;
+  -webkit-transition: ease-in-out .2s;
+  transition: ease-in-out .2s;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  cursor: pointer;
+}
+
 /*========== BASE ==========*/
 *,
 *::before,
@@ -13,7 +53,8 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1440px;
   font-family: 'Roboto';
   z-index: 1111;
 }
@@ -56,8 +97,8 @@ img {
   z-index: 999;
   width: 100%;
   height: 100vh;
-  -webkit-animation: pageLoader 3s forwards;
-          animation: pageLoader 3s forwards;
+  -webkit-animation: pageLoader 5s forwards;
+          animation: pageLoader 5s forwards;
 }
 
 .page-loader .ring {
@@ -65,8 +106,8 @@ img {
   width: 9em;
   height: 9em;
   border-radius: 50%;
-  -webkit-animation: ring 2s linear infinite;
-          animation: ring 2s linear infinite;
+  -webkit-animation: ring 3s linear infinite;
+          animation: ring 3s linear infinite;
 }
 
 .page-loader .ring::before {
@@ -189,6 +230,9 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: lightgray;
   padding: .8rem 0;
 }
@@ -210,24 +254,6 @@ header {
   margin-bottom: 1.7rem;
 }
 
-.order-section .explore-container .explore-btn-cta {
-  -webkit-box-shadow: 0 0 10px green;
-          box-shadow: 0 0 10px green;
-  border: none;
-  padding: 1em;
-  background: #9356DC;
-  background: linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
-  border-radius: 2rem;
-  color: white;
-  font-weight: bold;
-}
-
-.order-section .explore-container .explore-btn-cta:hover {
-  cursor: pointer;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-}
-
 /*========== ABOUT SECTION ==========*/
 .about-section {
   padding: 1rem;
@@ -239,6 +265,12 @@ header {
 
 .about-section .about-card-container {
   padding-left: .5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  -webkit-column-gap: 3em;
+          column-gap: 3em;
 }
 
 .about-section .about-card-container .about-card {
@@ -287,11 +319,16 @@ header {
   margin-bottom: 2rem;
 }
 
+.restaurant-section .restaurants-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  -webkit-column-gap: 3em;
+          column-gap: 3em;
+}
+
 .restaurant-section .restaurant-card {
-  -webkit-box-shadow: 0 0 20px #2b2b2b;
-          box-shadow: 0 0 20px #2b2b2b;
-  margin-bottom: 2rem;
-  border-radius: 1rem;
   position: relative;
 }
 
@@ -316,39 +353,32 @@ header {
 
 .restaurant-section .restaurant-card .card-caption {
   padding: .5rem 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.restaurant-section .restaurant-card .card-caption .card-description {
   line-height: 1.8;
 }
 
-.restaurant-section .restaurant-card .card-caption .checkbox {
+.restaurant-section .restaurant-card .checkbox {
   cursor: pointer;
+  position: absolute;
+  right: 1em;
+  bottom: 1.75em;
 }
 
-.restaurant-section .restaurant-card .card-caption input[type="checkbox"] {
+.restaurant-section .restaurant-card input[type="checkbox"] {
   display: none;
 }
 
-.restaurant-section .restaurant-card .card-caption input[type="checkbox"], .restaurant-section .restaurant-card .card-caption .checked {
+.restaurant-section .restaurant-card input[type="checkbox"], .restaurant-section .restaurant-card .checked {
   display: none;
+  position: relative;
+  top: -2px;
 }
 
-.restaurant-section .restaurant-card .card-caption input[type="checkbox"]:checked ~ .checked {
+.restaurant-section .restaurant-card input[type="checkbox"]:checked ~ .checked {
   color: #812269;
   display: inherit;
 }
 
-.restaurant-section .restaurant-card .card-caption input[type="checkbox"]:checked ~ .unchecked {
+.restaurant-section .restaurant-card input[type="checkbox"]:checked ~ .unchecked {
   display: none;
 }
 
@@ -365,45 +395,50 @@ header {
   font-size: 1.5rem;
 }
 
+.footer-section .fas {
+  margin-right: .6em;
+}
+
 /*========== PAGES ==========*/
-header {
+.pages-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr auto)[2];
+      grid-template-columns: repeat(2, 1fr auto);
+}
+
+.pages-header .back-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-header i {
-  position: relative;
-  left: -100px;
+.banner-img {
+  height: 40vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .page-main {
-  background-color: #f0f0f0;
+  background-color: #ebebeb;
 }
 
-.hero-bg {
-  background: url("../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg") no-repeat;
-  height: 40vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-.menu-container {
+.page-container {
   border-radius: 2rem 2rem 0 0;
-  background: #f0f0f0;
+  background: #ebebeb;
   position: relative;
   top: -2rem;
   padding: 2rem 1rem;
 }
 
-.menu-container .title {
+.page-container .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -415,29 +450,38 @@ header i {
           align-items: center;
 }
 
-.menu-container .title h1 {
+.page-container .title h1 {
   font-family: 'Shrikhand';
 }
 
-.menu-container .title .checkbox {
+.page-container .title .checkbox {
   cursor: pointer;
 }
 
-.menu-container .title input[type="checkbox"] {
+.page-container .title input[type="checkbox"] {
   display: none;
 }
 
-.menu-container .title input[type="checkbox"], .menu-container .title .checked {
+.page-container .title input[type="checkbox"], .page-container .title .checked {
   display: none;
 }
 
-.menu-container .title input[type="checkbox"]:checked ~ .checked {
+.page-container .title input[type="checkbox"]:checked ~ .checked {
   color: #812269;
   display: inherit;
 }
 
-.menu-container .title input[type="checkbox"]:checked ~ .unchecked {
+.page-container .title input[type="checkbox"]:checked ~ .unchecked {
   display: none;
+}
+
+.menu-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(21.5rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(21.5rem, 1fr));
+  -webkit-column-gap: 3em;
+          column-gap: 3em;
 }
 
 .starters {
@@ -460,72 +504,71 @@ header i {
   left: 0;
 }
 
-.starters .menu-item-card {
+.starters .option-menu-item {
   -webkit-box-shadow: 0 0 20px #2b2b2b;
           box-shadow: 0 0 20px #2b2b2b;
-  background-color: white;
-  border-radius: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
   overflow: hidden;
+  -webkit-transition: ease-in-out .2s;
+  transition: ease-in-out .2s;
 }
 
-.starters .menu-item-card:hover .check-icon {
+.starters .option-menu-item .card-description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.starters .menu-item-card .card-description {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow: hidden;
-  width: 400px;
-  padding: 1.5rem;
+  width: 300px;
+  padding: 1.2rem;
 }
 
-.starters .menu-item-card .card-description h4 {
-  margin: 0 0 .5rem 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.starters .menu-item-card .card-description p {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.starters .menu-item-card .price {
+.starters .option-menu-item .card-description .meal-title {
   font-weight: bold;
+  margin: 0 0 .5rem 0;
+}
+
+.starters .option-menu-item .card-description .meal-description {
+  font-size: .8rem;
+}
+
+.starters .option-menu-item .card-description .meal-title, .starters .option-menu-item .card-description .meal-description {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.starters .option-menu-item .price {
+  font-weight: bold;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 1.2rem;
+}
+
+.starters .option-menu-item .magic {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 1rem;
-  margin-left: 29px;
-  position: relative;
-  -webkit-animation: checkedItem 1s ease-in-out;
-          animation: checkedItem 1s ease-in-out;
 }
 
-.starters .menu-item-card .check-icon {
+.starters .option-menu-item input {
+  display: none;
+}
+
+.starters .option-menu-item input[type="checkbox"]:checked ~ .magic .check-icon {
+  display: inherit;
+}
+
+.starters .option-menu-item .check-icon {
   font-size: 20px;
   display: none;
   position: relative;
@@ -533,15 +576,22 @@ header i {
   color: white;
   padding: 2rem;
   border-radius: 0 1rem 1rem 0;
-  -webkit-transition: all 2s;
-  transition: all 2s;
-  -webkit-animation: checkedItem 1s linear;
-          animation: checkedItem 1s linear;
+  -webkit-animation: checkedItem .2s linear;
+          animation: checkedItem .2s linear;
 }
 
-.starters .menu-item-card .check-icon .fa-check-circle {
-  -webkit-animation: checkIcon 1s ease-in-out;
-          animation: checkIcon 1s ease-in-out;
+.starters .option-menu-item .check-icon .fa-check-circle {
+  -webkit-animation: checkIcon .4s ease-out;
+          animation: checkIcon .4s ease-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @-webkit-keyframes checkedItem {
@@ -592,22 +642,22 @@ header i {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .commande .btn-cta {
-  -webkit-box-shadow: 0 0 10px #2b2b2b;
-          box-shadow: 0 0 10px #2b2b2b;
-  border: none;
-  padding: 1em;
-  background: #9356DC;
-  background: linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
-  border-radius: 2rem;
-  color: white;
-  font-weight: bold;
+  font-size: 1.125rem;
   display: block;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.25rem;
+}
+
+object[data="footer.html"] {
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
 }
 /*# sourceMappingURL=style.css.map */

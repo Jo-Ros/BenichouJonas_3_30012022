@@ -3,23 +3,77 @@
 
 /*===== VARIABLES =====*/
 
-  /*========== Colors ==========*/
+  /*--------- Colors ---------*/
     $color-primary: #9356DC;
     $color-secondary: #FF79DA;
     $color-tertiary: #99E2D0;
     $color-btn-gradient: linear-gradient(347deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
+    $color-btn-gradient-reverse: linear-gradient(147deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
     $color-bg-footer: #222423;
     $color-shadow: rgb(43, 43, 43);
 
-    /*========== SIZES ==========*/
+  /*---------- SIZES ----------*/
     $shadow-card-size: 20px;
     $shadow-btn-size: 10px;
 
 /*===== MIXINS =====*/
-@mixin boxes-shadow($colour: $color-shadow, $shadow-size: $shadow-card-size){
-  box-shadow: 0 0 $shadow-size $colour;
+
+  /*--------- STYLES ---------*/
+    @mixin boxes-shadow($colour: $color-shadow, $shadow-size: $shadow-card-size){
+      box-shadow: 0 0 $shadow-size $colour;
+    }
+
+  /*--------- LAYOUTS ---------*/
+
+    @mixin flex-between{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @mixin flex-center{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @mixin ellipsis{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+/*===== COMPONENTS =====*/
+
+.btn-cta{
+  @include boxes-shadow($color-shadow, $shadow-btn-size);
+  background: $color-btn-gradient;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 1em;
+  border-radius: 2rem;
+  transition: ease-in-out .3s;
+  animation: btnAnimation;
+  
+  &:hover{
+      cursor: pointer;
+      transform: scale(1.05);
+      background: $color-btn-gradient-reverse;
+  }
 }
 
+.card{
+  @include boxes-shadow;
+  border-radius: 1em;
+  margin-bottom: 1.7rem;
+  transition: ease-in-out .2s;
+
+  &:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+}
 
 /*========== BASE ==========*/
 *,
@@ -29,7 +83,8 @@
 }
 
 body{
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1440px;
   font-family: 'Roboto';
   z-index: 1111;
 }
@@ -66,14 +121,14 @@ img{
   z-index: 999;
   width: 100%;
   height: 100vh;
-  animation: pageLoader 3s forwards;
+  animation: pageLoader 5s forwards;
 
  .ring{
    position: absolute;
    width: 9em;
    height: 9em;
    border-radius: 50%;
-   animation: ring 2s linear infinite;
+   animation: ring 3s linear infinite;
 
    &::before{
      position: absolute;
@@ -149,8 +204,7 @@ header{
     text-align: center;
 
     .location{
-        display: flex;
-        justify-content: center;
+        @include flex-center;
         background: lightgray;
         padding: .8rem 0;
 
@@ -170,22 +224,6 @@ header{
         p{
             margin-bottom: 1.7rem;
         }
-
-        .explore-btn-cta{
-            @include boxes-shadow(green, $shadow-btn-size);
-            border: none;
-            padding: 1em;
-            background: $color-primary;
-            background: $color-btn-gradient;
-            border-radius: 2rem;
-            color: white;
-            font-weight: bold;
-            
-            &:hover{
-                cursor: pointer;
-                transform: scale(1.05);
-            }
-        }
     }
 }
 
@@ -200,6 +238,9 @@ header{
     
     .about-card-container{
       padding-left: .5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      column-gap: 3em;
 
       .about-card{
         display: flex;
@@ -245,10 +286,13 @@ header{
     margin-bottom: 2rem;
   }
 
+  .restaurants-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    column-gap: 3em;
+  }
+
   .restaurant-card{
-    @include boxes-shadow;
-    margin-bottom: 2rem;
-    border-radius: 1rem;
     position: relative;
 
     img{
@@ -271,34 +315,33 @@ header{
 
     .card-caption{
       padding: .5rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      line-height: 1.8;
+    }
 
-      .card-description{
-        line-height: 1.8;
-      }
-    
-      .checkbox{
-        cursor: pointer;
-      }
+    .checkbox{
+      cursor: pointer;
+      position: absolute;
+      right: 1em;
+      bottom: 1.75em;
+    }
 
-      input[type="checkbox"]{
-        display: none;
-      }
+    input[type="checkbox"]{
+      display: none;
+    }
 
-      input[type="checkbox"], .checked{
-        display: none;
-      }
+    input[type="checkbox"], .checked{
+      display: none;
+      position: relative;
+      top: -2px;
+    }
 
-      input[type="checkbox"]:checked ~ .checked{
-        color: rgb(129, 34, 105);
-        display: inherit;
-      }
+    input[type="checkbox"]:checked ~ .checked{
+      color: rgb(129, 34, 105);
+      display: inherit;
+    }
 
-      input[type="checkbox"]:checked ~ .unchecked{
-        display: none;
-      }
+    input[type="checkbox"]:checked ~ .unchecked{
+      display: none;
     }
   }
 }
@@ -315,44 +358,44 @@ header{
     font-family: 'Shrikhand';
     font-size: 1.5rem;
   }
+
+  .fas{
+    margin-right: .6em;
+  }
 }
 
 /*========== PAGES ==========*/
 
-header{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.pages-header{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr auto);
 
-  i{
-    position: relative;
-    left: -100px;
+  .back-link{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 
-.page-main{
-  background-color: rgb(240, 240, 240);
-}
-
-.hero-bg{
-  background: url('../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg') no-repeat;
+.banner-img{
   height: 40vh;
   width: 100%;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
 }
 
-.menu-container{
+.page-main{
+  background-color: rgb(235, 235, 235);
+}
+
+.page-container{
   border-radius: 2rem 2rem 0 0;
-  background: rgb(240, 240, 240);
+  background: rgb(235, 235, 235);
   position: relative;
   top: -2rem;
   padding: 2rem 1rem;
 
   .title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-between;
 
     h1{
       font-family: 'Shrikhand';
@@ -381,6 +424,12 @@ header{
   }
 }
 
+.menu-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21.5rem, 1fr));
+  column-gap: 3em;
+}
+
 .starters{
   padding: 2rem 0;
 
@@ -400,108 +449,106 @@ header{
     }
   }
 
-  .menu-item-card{
+  .option-menu-item{
     @include boxes-shadow;
-    background-color: white;
-    border-radius: 1rem;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
-    cursor: pointer;
     overflow: hidden;
-
-    &:hover .check-icon{
-      display: flex;
-      justify-content: center;
-      align-items: center; 
-    }
+    transition: ease-in-out .2s;
 
     .card-description{
-        overflow: hidden;
-        width: 400px;
-        padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      width: 300px;
+      padding: 1.2rem;
 
-        h4{
-          margin: 0 0 .5rem 0;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
+      .meal-title{
+        font-weight: bold;
+        margin: 0 0 .5rem 0;
+      }
 
-        p{
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
+      .meal-description{
+        font-size: .8rem;
+      }
+
+      .meal-title, .meal-description{
+        @include ellipsis;
+      }
     }
 
     .price{
       font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      margin-left: 29px;
-      position: relative;
-      animation: checkedItem 1s ease-in-out;
+      align-self: center; //Maybe flex-end
+      padding: 1.2rem;
     }
+
+    .magic{
+        display: flex;
+    }
+
+    input{
+        display: none;
+    }
+
+    input[type="checkbox"]:checked ~ .magic .check-icon{
+        display: inherit;
+    }
+
 
     .check-icon{
-      font-size: 20px;
-      display: none;
-      position: relative;
-      //right: -85px;
-      background-color: $color-tertiary;
-      color: white;
-      padding: 2rem;
-      border-radius: 0 1rem 1rem 0;
-      animation: checkedItem 1s linear;
-
-      .fa-check-circle{
-        animation: checkIcon 1s ease-in-out;
-      }
+        font-size: 20px;
+        display: none;
+        position: relative;
+        background-color: $color-tertiary;
+        color: white;
+        padding: 2rem;
+        border-radius: 0 1rem 1rem 0;
+        animation: checkedItem .2s linear;
+  
+        .fa-check-circle{
+          animation: checkIcon .4s ease-out;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
     }
-  }
 
-}
+    @keyframes checkedItem{
+        0%{
+          right: -85px;
+        }
+      
+        100%{
+          right: 0;
+        }
+    }
 
-@keyframes checkedItem{
-  0%{
-    right: -85px;
-  }
-
-  100%{
-    right: 0;
-  }
-}
-
-@keyframes checkIcon{
-  0%{
-    transform: rotate(360deg);
-  }
-
-  100%{
-    transform: rotate(-360deg);
+    @keyframes checkIcon{
+        0%{
+          transform: rotate(360deg);
+        }
+      
+        100%{
+          transform: rotate(-360deg);
+        }
+    }
   }
 }
 
 .commande{
   width: 100%;
-  display: flex;
-  justify-content: center;
+  @include flex-center;
 
-  .btn-cta{ //import later
-    @include boxes-shadow( $color-shadow, $shadow-btn-size);
-    border: none;
-    padding: 1em;
-    background: $color-primary;
-    background: $color-btn-gradient;
-    border-radius: 2rem;
-    color: white;
-    font-weight: bold;
+  .btn-cta{
+    font-size: 1.125rem;
     display: block;
     align-items: center;
-    font-size: 1.25rem;
   }
 }
 
+object[data="footer.html"]{
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
+}

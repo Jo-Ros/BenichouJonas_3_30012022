@@ -1,0 +1,38 @@
+/*===== MIXINS =====*/
+
+  /*--------- STYLES ---------*/
+  @mixin boxes-shadow($colour: $color-shadow, $shadow-size: $shadow-card-size){
+    box-shadow: 0 0 $shadow-size $colour;
+  }
+
+  @mixin heart-color{
+    background: -webkit-linear-gradient(347deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+/*--------- LAYOUTS ---------*/
+
+  @mixin flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @mixin ellipsis{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  @mixin grid-template ($small: $minmax-small){
+    display: grid;
+    column-gap: 3em;
+    grid-template-columns: repeat(auto-fit, minmax($small, 1fr));
+  }

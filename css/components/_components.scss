@@ -1,8 +1,10 @@
 /*===== COMPONENTS =====*/
 
+/*--Buttons--*/
 .btn-cta{
     @include boxes-shadow($color-shadow, $shadow-btn-size);
     background: $color-btn-gradient;
+    text-shadow: 0 0 6px rgb(0, 0, 0);
     color: white;
     font-weight: bold;
     border: none;
@@ -17,15 +19,40 @@
         background: $color-btn-gradient-reverse;
     }
   }
+
+/*--Cards--*/
+.card{
+  @include boxes-shadow;
+  border-radius: 1em;
+  margin-bottom: 1.7rem;
+  transition: ease-in-out .2s;
   
-  .card{
-    @include boxes-shadow;
-    border-radius: 1em;
-    margin-bottom: 1.7rem;
-    transition: ease-in-out .2s;
-  
-    &:hover{
-      transform: scale(1.01);
-      cursor: pointer;
-    }
+  &:hover{
+    transform: scale(1.01);
+    cursor: pointer;
   }
+}
+
+/*--Checkboxes--*/
+.checkbox{
+  cursor: pointer;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+input[type="checkbox"] ~ .checked{
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ .checked{
+  @include heart-color;
+  display: inherit;
+  animation: heartAppear .8s ease-in-out;
+}
+
+input[type="checkbox"]:checked ~ .unchecked{
+  display: none;
+}
+

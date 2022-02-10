@@ -12,6 +12,12 @@ body{
   z-index: 1111;
 }
 
+.ohmyfoodlogo{
+  width: 200px;
+}
+
+/*========== RESET ==========*/
+
 h1,h2,h3,p,ul{
   margin: 0;
 }
@@ -30,8 +36,4 @@ img{
   width: 100%;
   height: auto;
   object-fit: cover;
-}
-
-.ohmyfoodlogo{
-    width: 200px;
 }

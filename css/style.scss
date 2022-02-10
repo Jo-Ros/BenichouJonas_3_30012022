@@ -148,29 +148,14 @@ header{
     }
 
     .checkbox{
-      cursor: pointer;
       position: absolute;
       right: 1em;
       bottom: 1.75em;
     }
 
-    input[type="checkbox"]{
-      display: none;
-    }
-
     input[type="checkbox"], .checked{
-      display: none;
       position: relative;
       top: -2px;
-    }
-
-    input[type="checkbox"]:checked ~ .checked{
-      @include heart-color;
-      display: inherit;
-    }
-
-    input[type="checkbox"]:checked ~ .unchecked{
-      display: none;
     }
   }
 }
@@ -200,6 +185,7 @@ header{
   grid-template-columns: repeat(2, 1fr auto);
 
   .back-link{
+    width: 80px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -229,48 +215,26 @@ header{
     h1{
       font-family: 'Shrikhand';
     }
-
-    .checkbox{
-      cursor: pointer;
-    }
-
-    input[type="checkbox"]{
-      display: none;
-    }
-
-    input[type="checkbox"], .checked{
-      display: none;
-    }
-
-    input[type="checkbox"]:checked ~ .checked{
-      @include heart-color;
-      display: inherit;
-    }
-
-    input[type="checkbox"]:checked ~ .unchecked{
-      display: none;
-    }
   }
 }
 
 .menu-container{
   @include grid-template($minmax-big);
   position: relative;
-  //animation: cascadingAppearance 1s linear;
 }
 
 .starters{
   padding: 2rem 0;
   position: relative;
-  animation: cascadingAppearance .65s linear; // USE FUNCTIONS AFTER HERE! 
-
+  animation: cascadingAppearance .65s linear; // USE FUNCTIONS AFTER HERE!
+   
   &:nth-child(2){
-    animation-delay: .15s;
-  }
-
-  &:nth-child(3){
-    animation-delay: .25s;
+     animation-delay: .15s;
    }
+
+   &:nth-child(3){
+     animation-delay: .25s;
+    }
 
   h3{
     font-weight: normal;

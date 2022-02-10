@@ -15,17 +15,6 @@
      height: 9em;
      border-radius: 50%;
      animation: ring 3s linear infinite;
-  
-     &::before{
-       position: absolute;
-       content: "";
-       left: 0;
-       right: 0;
-       height: 100%;
-       width: 100%;
-       box-shadow: 0 0 5px rgba(255, 255, 255, 0.459);
-       border-radius: 50%;
-     }
    }
   
     span{
@@ -40,7 +29,6 @@
   
   @keyframes ring{
     0%{
-      transform: rotate(0deg);
       box-shadow: 1px 5px 2px $color-primary;
     }
   

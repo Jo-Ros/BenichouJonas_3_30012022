@@ -6,11 +6,13 @@
 /*--------- STYLES ---------*/
 /*--------- LAYOUTS ---------*/
 /*===== COMPONENTS =====*/
+/*--Buttons--*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap");
 .btn-cta {
   -webkit-box-shadow: 0 0 10px #2b2b2b;
           box-shadow: 0 0 10px #2b2b2b;
   background: linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
+  text-shadow: 0 0 6px black;
   color: white;
   font-weight: bold;
   border: none;
@@ -29,6 +31,7 @@
   background: linear-gradient(147deg, #9356dc 16%, #ff79da 62%);
 }
 
+/*--Cards--*/
 .card {
   -webkit-box-shadow: 0 0 20px #2b2b2b;
           box-shadow: 0 0 20px #2b2b2b;
@@ -42,6 +45,32 @@
   -webkit-transform: scale(1.01);
           transform: scale(1.01);
   cursor: pointer;
+}
+
+/*--Checkboxes--*/
+.checkbox {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] ~ .checked {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ .checked {
+  background: -webkit-linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inherit;
+  -webkit-animation: heartAppear .8s ease-in-out;
+          animation: heartAppear .8s ease-in-out;
+}
+
+input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
 }
 
 /*========== BASE ==========*/
@@ -59,6 +88,11 @@ body {
   z-index: 1111;
 }
 
+.ohmyfoodlogo {
+  width: 200px;
+}
+
+/*========== RESET ==========*/
 h1, h2, h3, p, ul {
   margin: 0;
 }
@@ -78,10 +112,6 @@ img {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.ohmyfoodlogo {
-  width: 200px;
 }
 
 .page-loader {
@@ -112,18 +142,6 @@ img {
           animation: ring 3s linear infinite;
 }
 
-.page-loader .ring::before {
-  position: absolute;
-  content: "";
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.459);
-          box-shadow: 0 0 5px rgba(255, 255, 255, 0.459);
-  border-radius: 50%;
-}
-
 .page-loader span {
   color: white;
   font-size: 1.5rem;
@@ -135,8 +153,6 @@ img {
 
 @-webkit-keyframes ring {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
     -webkit-box-shadow: 1px 5px 2px #9356DC;
             box-shadow: 1px 5px 2px #9356DC;
   }
@@ -156,8 +172,6 @@ img {
 
 @keyframes ring {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
     -webkit-box-shadow: 1px 5px 2px #9356DC;
             box-shadow: 1px 5px 2px #9356DC;
   }
@@ -210,6 +224,32 @@ img {
   100% {
     opacity: 0;
     z-index: -1;
+  }
+}
+
+/* ----Hearts-Appearing-animations------*/
+@-webkit-keyframes heartAppear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes heartAppear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -423,31 +463,14 @@ header {
 }
 
 .restaurant-section .restaurant-card .checkbox {
-  cursor: pointer;
   position: absolute;
   right: 1em;
   bottom: 1.75em;
 }
 
-.restaurant-section .restaurant-card input[type="checkbox"] {
-  display: none;
-}
-
 .restaurant-section .restaurant-card input[type="checkbox"], .restaurant-section .restaurant-card .checked {
-  display: none;
   position: relative;
   top: -2px;
-}
-
-.restaurant-section .restaurant-card input[type="checkbox"]:checked ~ .checked {
-  background: -webkit-linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inherit;
-}
-
-.restaurant-section .restaurant-card input[type="checkbox"]:checked ~ .unchecked {
-  display: none;
 }
 
 /*========== FOOTER SECTION ==========*/
@@ -476,6 +499,7 @@ header {
 }
 
 .pages-header .back-link {
+  width: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -519,29 +543,6 @@ header {
 
 .page-container .title h1 {
   font-family: 'Shrikhand';
-}
-
-.page-container .title .checkbox {
-  cursor: pointer;
-}
-
-.page-container .title input[type="checkbox"] {
-  display: none;
-}
-
-.page-container .title input[type="checkbox"], .page-container .title .checked {
-  display: none;
-}
-
-.page-container .title input[type="checkbox"]:checked ~ .checked {
-  background: -webkit-linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inherit;
-}
-
-.page-container .title input[type="checkbox"]:checked ~ .unchecked {
-  display: none;
 }
 
 .menu-container {

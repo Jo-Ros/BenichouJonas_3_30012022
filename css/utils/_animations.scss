@@ -40,13 +40,17 @@
 @keyframes cascadingAppearance{
   0%{
     opacity: 0;
-    top: -5em;
-    right: -5em;
+    top: -5rem;
+    left: -15em;
+  }
+
+  80%{
+    opacity: .1;
   }
 
   100%{
     opacity: 1;
     top: 0;
-    right: 0;
+    left: 0;
   }
 }

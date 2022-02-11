@@ -12,7 +12,6 @@
   -webkit-box-shadow: 0 0 10px #2b2b2b;
           box-shadow: 0 0 10px #2b2b2b;
   background: linear-gradient(347deg, #9356dc 16%, #ff79da 62%);
-  text-shadow: 0 0 6px black;
   color: white;
   font-weight: bold;
   border: none;
@@ -28,7 +27,9 @@
   cursor: pointer;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  background: linear-gradient(147deg, #9356dc 16%, #ff79da 62%);
+  background: linear-gradient(137deg, #9356dc 16%, #ff79da 62%);
+  -webkit-box-shadow: 0 0 20px #2b2b2b;
+          box-shadow: 0 0 20px #2b2b2b;
 }
 
 /*--Cards--*/
@@ -297,25 +298,31 @@ img {
 @-webkit-keyframes cascadingAppearance {
   0% {
     opacity: 0;
-    top: -5em;
-    right: -5em;
+    top: -5rem;
+    left: -15em;
+  }
+  80% {
+    opacity: .1;
   }
   100% {
     opacity: 1;
     top: 0;
-    right: 0;
+    left: 0;
   }
 }
 @keyframes cascadingAppearance {
   0% {
     opacity: 0;
-    top: -5em;
-    right: -5em;
+    top: -5rem;
+    left: -15em;
+  }
+  80% {
+    opacity: .1;
   }
   100% {
     opacity: 1;
     top: 0;
-    right: 0;
+    left: 0;
   }
 }
 
@@ -556,18 +563,23 @@ header {
 .starters {
   padding: 2rem 0;
   position: relative;
-  -webkit-animation: cascadingAppearance .65s linear;
-          animation: cascadingAppearance .65s linear;
+  -webkit-animation: cascadingAppearance .45s linear;
+          animation: cascadingAppearance .45s linear;
+}
+
+.starters:nth-child(1) {
+  -webkit-animation-delay: 0.09s;
+          animation-delay: 0.09s;
 }
 
 .starters:nth-child(2) {
-  -webkit-animation-delay: .15s;
-          animation-delay: .15s;
+  -webkit-animation-delay: 0.18s;
+          animation-delay: 0.18s;
 }
 
 .starters:nth-child(3) {
-  -webkit-animation-delay: .25s;
-          animation-delay: .25s;
+  -webkit-animation-delay: 0.27s;
+          animation-delay: 0.27s;
 }
 
 .starters h3 {
@@ -587,8 +599,8 @@ header {
 }
 
 .starters .option-menu-item {
-  -webkit-box-shadow: 0 0 20px #2b2b2b;
-          box-shadow: 0 0 20px #2b2b2b;
+  -webkit-box-shadow: 0 0 10px #2b2b2b;
+          box-shadow: 0 0 10px #2b2b2b;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -599,6 +611,29 @@ header {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
+  position: relative;
+  -webkit-animation: cascadingAppearance .65s linear;
+          animation: cascadingAppearance .65s linear;
+}
+
+.starters .option-menu-item:nth-of-type(1) {
+  -webkit-animation-delay: 0.09s;
+          animation-delay: 0.09s;
+}
+
+.starters .option-menu-item:nth-of-type(2) {
+  -webkit-animation-delay: 0.18s;
+          animation-delay: 0.18s;
+}
+
+.starters .option-menu-item:nth-of-type(3) {
+  -webkit-animation-delay: 0.27s;
+          animation-delay: 0.27s;
+}
+
+.starters .option-menu-item:nth-of-type(4) {
+  -webkit-animation-delay: 0.36s;
+          animation-delay: 0.36s;
 }
 
 .starters .option-menu-item .card-description {

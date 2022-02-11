@@ -4,7 +4,7 @@
 .btn-cta{
     @include boxes-shadow($color-shadow, $shadow-btn-size);
     background: $color-btn-gradient;
-    text-shadow: 0 0 6px rgb(0, 0, 0);
+    //text-shadow: 0 0 6px rgb(0, 0, 0);
     color: white;
     font-weight: bold;
     border: none;
@@ -17,6 +17,7 @@
         cursor: pointer;
         transform: scale(1.05);
         background: $color-btn-gradient-reverse;
+        @include boxes-shadow($color-shadow, $shadow-card-size);
     }
   }
 

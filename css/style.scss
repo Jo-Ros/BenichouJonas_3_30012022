@@ -6,7 +6,7 @@
     $color-tertiary: #99E2D0;
     $color-background: rgb(235, 235, 235);
     $color-btn-gradient: linear-gradient(347deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
-    $color-btn-gradient-reverse: linear-gradient(147deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
+    $color-btn-gradient-reverse: linear-gradient(137deg, rgba(147,86,220,1) 16%, rgba(255,121,218,1) 62%);
     $color-bg-footer: #222423;
     $color-shadow: rgb(43, 43, 43);
 
@@ -20,7 +20,7 @@
 @import "./utils/mixins";
 @import "./components/components";
 @import "./base/reset";
-@import "./pages/pageLoader";
+//@import "./pages/pageLoader";
 @import "./utils/animations";
 /*--- Google Fonts ---*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap');
@@ -226,15 +226,12 @@ header{
 .starters{
   padding: 2rem 0;
   position: relative;
-  animation: cascadingAppearance .65s linear; // USE FUNCTIONS AFTER HERE!
-   
-  &:nth-child(2){
-     animation-delay: .15s;
-   }
-
-   &:nth-child(3){
-     animation-delay: .25s;
+  animation: cascadingAppearance .45s linear;
+  @for $i from 1 through 3{
+    &:nth-child(#{$i}){
+      animation-delay: ($i * .09s);
     }
+  }
 
   h3{
     font-weight: normal;
@@ -253,9 +250,16 @@ header{
   }
 
   .option-menu-item{
-    @include boxes-shadow;
+    @include boxes-shadow($color-shadow, $shadow-btn-size);
     @include flex-between;
     overflow: hidden;
+    position: relative;
+    animation: cascadingAppearance .65s linear;
+    @for $i from 1 through 4{
+      &:nth-of-type(#{$i}){
+        animation-delay: ($i * .09s);
+      }
+    }
 
     .card-description{
       display: flex;
@@ -280,7 +284,7 @@ header{
 
     .price{
       font-weight: bold;
-      align-self: center; //Maybe flex-end
+      align-self: center;
       padding: 1.2rem;
     }
 

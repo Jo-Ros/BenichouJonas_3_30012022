@@ -181,13 +181,13 @@ header{
 /*========== PAGES ==========*/
 
 .pages-header{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr auto);
+  display: flex;
+  justify-content: space-between;
 
   .back-link{
-    width: 80px;
+    //width: 80px;
     display: flex;
-    justify-content: flex-start;
+    //justify-content: flex-start;
     align-items: center;
   }
 }

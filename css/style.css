@@ -386,7 +386,7 @@ header {
   display: grid;
   -webkit-column-gap: 3em;
           column-gap: 3em;
-  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit];
+  /* -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit]; */
       grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
@@ -441,7 +441,7 @@ header {
   display: grid;
   -webkit-column-gap: 3em;
           column-gap: 3em;
-  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit];
+  /* -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit]; */
       grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
@@ -556,7 +556,7 @@ header {
   display: grid;
   -webkit-column-gap: 3em;
           column-gap: 3em;
-  -ms-grid-columns: (minmax(21.5rem, 1fr))[auto-fit];
+  /* -ms-grid-columns: (minmax(21.5rem, 1fr))[auto-fit]; */
       grid-template-columns: repeat(auto-fit, minmax(21.5rem, 1fr));
   position: relative;
 }

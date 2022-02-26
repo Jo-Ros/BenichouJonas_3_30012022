@@ -14,28 +14,6 @@
   }
 }
 
-/* ----Checked-menu-card-animations------*/
-
-@keyframes checkedItem{
-    0%{
-      right: -85px;
-    }
-  
-    100%{
-      right: 0;
-    }
-}
-
-@keyframes checkIcon{
-    0%{
-      transform: rotate(360deg);
-    }
-  
-    100%{
-      transform: rotate(-360deg);
-    }
-}
-
 /* ----Menu-card-Appearing-animations------*/
 @keyframes cascadingAppearance{
   0%{

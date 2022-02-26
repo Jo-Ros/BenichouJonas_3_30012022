@@ -224,12 +224,6 @@ header{
 .starters{
   padding: 2rem 0;
   position: relative;
-  animation: cascadingAppearance .45s linear;
-  @for $i from 1 through 3{
-    &:nth-child(#{$i}){
-      animation-delay: ($i * .09s);
-    }
-  }
 
   h3{
     font-weight: normal;
@@ -255,12 +249,13 @@ header{
     animation: cascadingAppearance .65s linear;
     @for $i from 1 through 4{
       &:nth-of-type(#{$i}){
-        animation-delay: ($i * .09s);
+        animation-delay: ($i * .13s);
       }
     }
 
     .card-description{
       display: flex;
+      flex: 1;
       flex-direction: column;
       overflow: hidden;
       width: 300px;
@@ -288,31 +283,36 @@ header{
 
     .magic{
         display: flex;
+        margin-right: -85px;
+        transition: 1s ease-in-out;
+          
+        .check-icon{
+            font-size: 20px;
+            position: relative;
+            background-color: $color-tertiary;
+            color: white;
+            padding: 2rem;
+            border-radius: 0 1rem 1rem 0;
+            transition: 1s ease-in-out;
+
+            .fa-check-circle{
+              transform: rotate(180deg);
+              transition: 1s ease-out;
+              @include flex-center;
+            }
+          }
     }
 
-    input{
-        display: none;
+    input[type="checkbox"]{
+        display: none;    
     }
 
-    input[type="checkbox"]:checked ~ .magic .check-icon{
-        display: inherit;
+    input[type="checkbox"]:checked ~ .magic{
+        margin-right: 0;
     }
 
-
-    .check-icon{
-        font-size: 20px;
-        display: none;
-        position: relative;
-        background-color: $color-tertiary;
-        color: white;
-        padding: 2rem;
-        border-radius: 0 1rem 1rem 0;
-        animation: checkedItem .2s linear;
-  
-        .fa-check-circle{
-          animation: checkIcon .4s ease-out;
-          @include flex-center;
-        }
+    input[type="checkbox"]:checked ~ .magic .fa-check-circle{
+      transform: rotate(0deg);
     }
   }
 }

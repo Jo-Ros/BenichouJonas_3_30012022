@@ -255,46 +255,6 @@ img {
   }
 }
 
-/* ----Checked-menu-card-animations------*/
-@-webkit-keyframes checkedItem {
-  0% {
-    right: -85px;
-  }
-  100% {
-    right: 0;
-  }
-}
-@keyframes checkedItem {
-  0% {
-    right: -85px;
-  }
-  100% {
-    right: 0;
-  }
-}
-
-@-webkit-keyframes checkIcon {
-  0% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-  100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-  }
-}
-
-@keyframes checkIcon {
-  0% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-  100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-  }
-}
-
 /* ----Menu-card-Appearing-animations------*/
 @-webkit-keyframes cascadingAppearance {
   0% {
@@ -564,23 +524,6 @@ header {
 .starters {
   padding: 2rem 0;
   position: relative;
-  -webkit-animation: cascadingAppearance .45s linear;
-          animation: cascadingAppearance .45s linear;
-}
-
-.starters:nth-child(1) {
-  -webkit-animation-delay: 0.09s;
-          animation-delay: 0.09s;
-}
-
-.starters:nth-child(2) {
-  -webkit-animation-delay: 0.18s;
-          animation-delay: 0.18s;
-}
-
-.starters:nth-child(3) {
-  -webkit-animation-delay: 0.27s;
-          animation-delay: 0.27s;
 }
 
 .starters h3 {
@@ -618,29 +561,32 @@ header {
 }
 
 .starters .option-menu-item:nth-of-type(1) {
-  -webkit-animation-delay: 0.09s;
-          animation-delay: 0.09s;
+  -webkit-animation-delay: 0.13s;
+          animation-delay: 0.13s;
 }
 
 .starters .option-menu-item:nth-of-type(2) {
-  -webkit-animation-delay: 0.18s;
-          animation-delay: 0.18s;
+  -webkit-animation-delay: 0.26s;
+          animation-delay: 0.26s;
 }
 
 .starters .option-menu-item:nth-of-type(3) {
-  -webkit-animation-delay: 0.27s;
-          animation-delay: 0.27s;
+  -webkit-animation-delay: 0.39s;
+          animation-delay: 0.39s;
 }
 
 .starters .option-menu-item:nth-of-type(4) {
-  -webkit-animation-delay: 0.36s;
-          animation-delay: 0.36s;
+  -webkit-animation-delay: 0.52s;
+          animation-delay: 0.52s;
 }
 
 .starters .option-menu-item .card-description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -677,31 +623,27 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-right: -85px;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
-.starters .option-menu-item input {
-  display: none;
-}
-
-.starters .option-menu-item input[type="checkbox"]:checked ~ .magic .check-icon {
-  display: inherit;
-}
-
-.starters .option-menu-item .check-icon {
+.starters .option-menu-item .magic .check-icon {
   font-size: 20px;
-  display: none;
   position: relative;
   background-color: #99E2D0;
   color: white;
   padding: 2rem;
   border-radius: 0 1rem 1rem 0;
-  -webkit-animation: checkedItem .2s linear;
-          animation: checkedItem .2s linear;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
-.starters .option-menu-item .check-icon .fa-check-circle {
-  -webkit-animation: checkIcon .4s ease-out;
-          animation: checkIcon .4s ease-out;
+.starters .option-menu-item .magic .check-icon .fa-check-circle {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1s ease-out;
+  transition: 1s ease-out;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -711,6 +653,19 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.starters .option-menu-item input[type="checkbox"] {
+  display: none;
+}
+
+.starters .option-menu-item input[type="checkbox"]:checked ~ .magic {
+  margin-right: 0;
+}
+
+.starters .option-menu-item input[type="checkbox"]:checked ~ .magic .fa-check-circle {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
 .commande {
